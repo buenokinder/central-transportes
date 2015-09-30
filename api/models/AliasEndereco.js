@@ -10,10 +10,31 @@ module.exports = {
 
   attributes: {
   	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
+  	nome: {
+      type: 'string',
+      required: true
+    },  
+	endereco: {
+      type: 'string',
+      required: true
+    },
+	 bairro: {
+      type: 'string',
+      required: true
+    },
+	 estado: {
+      model: 'estado',
+      required: true
+    },
+     empresa: {
+      model: 'empresa',
+      required: true
+    },
+    status: {    
+        type: 'string',
+        enum: ['Ativo', 'Inativo'],
+        defaultsTo: 'Ativo'
+    }
   }
 
 };

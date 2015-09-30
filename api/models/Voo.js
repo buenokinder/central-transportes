@@ -9,10 +9,15 @@
 module.exports = {
 
   attributes: {
-  	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
+  	status: {    
+        type: 'string',
+        enum: ['Embarque', 'Desembarque'],
+        defaultsTo: 'Embarque'
+    },
+  		tipo: {
+      type: 'date',
+      required: true
+    }
     
   }
 

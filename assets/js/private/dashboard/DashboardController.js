@@ -7,7 +7,7 @@ app.controller('DashboardController', [ '$scope', function($scope){
  
 
 }]);
-app.controller('SolicitacaoController', [ '$scope', function($scope){
+app.controller('SolicitacaoController', [ '$scope','$locationProvider', function($scope,$locationProvider){
  
 
 }]);

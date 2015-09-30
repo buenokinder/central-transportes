@@ -10,9 +10,10 @@ module.exports = {
 
   attributes: {
   	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
+  	nome: {
+      type: 'string',
+      required: true
+    }
     
   }
 

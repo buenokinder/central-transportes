@@ -1,76 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
+<!--Conditionals for IE9 Support-->
+<!--[if IE 9]><html lang="en" class="ie ie9"><![endif]-->
 <html>
   <head>
-    <title>Sign Up for Activity Overlord (angular)</title>
-
-    <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-    <!--STYLES-->
-    <link rel="stylesheet" href="/styles/animate.css">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/colors/color-default.css">
-    <link rel="stylesheet" href="/styles/demo-styles.css">
-    <link rel="stylesheet" href="/styles/font-awesome.min.css">
-    <link rel="stylesheet" href="/styles/icon-moon.css">
-    <link rel="stylesheet" href="/styles/theme-styles.css">
-    <!--STYLES END-->
-
-    <!--Added this so the client has access to the csrf tag and it's grabbed first service side on every page -->
+    <meta charset="utf-8">
+    <title>Sistema de Transportes - E-Frotas</title>
+    <meta name="description" content="" />
+		<meta name="keywords" content="responsive html5 template, landing page, bootstrap 3.0, css, jquery" />
+		<meta name="author" content="c4rl0s w0z" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!--Google Fonts-->
+    
+        <!--STYLES-->
+        <link rel="stylesheet" href="/styles/animate.css">
+        <link rel="stylesheet" href="/styles/bootstrap.min.css">
+        <link rel="stylesheet" href="/styles/colors/color-499ed7.css">
+        <link rel="stylesheet" href="/styles/demo-styles.css">
+        <link rel="stylesheet" href="/styles/font-awesome.min.css">
+        <link rel="stylesheet" href="/styles/icon-moon.css">
+        <link rel="stylesheet" href="/styles/theme-styles.css">
+        <!--STYLES END-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+        <script src="/js/dependencies/modernizr.custom.js"></script>
+    <!--Adding Media Queries and Canvas Support for IE8-->
+    <!--[if lt IE 9]>
+      <script src="js/dependencies/plugins/respond.min.js"></script>
+      <script src="js/dependencies/plugins/excanvas.js"></script>
+    <![endif]-->
+    <!--Google Analytics-->
     <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-46803427-2']);
+              _gaq.push(['_trackPageview']);
+      (function () {
+          var ga = document.createElement('script');
+          ga.type = 'text/javascript';
+          ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    
+    <!--Facebook Remarketing (Placed in <head>))-->
+    <script>(function() {
+      var _fbq = window._fbq || (window._fbq = []);
+      if (!_fbq.loaded) {
+        var fbds = document.createElement('script');
+        fbds.async = true;
+        fbds.src = '//connect.facebook.net/en_US/fbds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(fbds, s);
+        _fbq.loaded = true;
+      }
+      _fbq.push(['addPixelId', '1491098954441261']);
+    })();
+    window._fbq = window._fbq || [];
+    window._fbq.push(['track', 'PixelInitialized', {}]);
+    </script>
+    <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=1491098954441261&amp;ev=NoScript" /></noscript>
+ 
+<script type="text/javascript">
     window.SAILS_LOCALS = { _csrf: "<%= _csrf %>" };
     </script>
-
   </head>
 
-  <body ng-app="SignupModule" ng-controller="SignupController" ng-cloak>
-    <div class="container-fluid">
-
-      <!-- Creates the navbar -->
-        <nav class="navbar navbar-default navbar-inverse">
-      
-          <!-- This creates the mechanism for the collapse button -->
-          <button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-      
-            <!-- This controls the number of lines in the image when the nav collapse -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-          <!-- This is the brand on the left-hand side. -->
-          <a class="navbar-brand" href="/#"> Sennit TimeSheet 1.0</a>
-          <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-
-          <!-- LOGIN FORM -->  
-          <form ng-submit="submitLoginForm()" class="navbar-form navbar-right">
-
-              <!-- E M A I L -->
+  <!--Body-->
+  <body class="space-top"  ng-app="SignupModule" ng-controller="SignupController" ng-cloak>
+  
+  	
+  	<!--Page Preloading-->
+    <div id="preloader"><div id="spinner"></div></div>
+    
+    <!--Login Modal-->
+    <div class="light-skin modal fade" id="loginModal" tabindex="-1" role="form" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Login here</h4>
+          </div>
+          <div class="modal-body">
+          
+         
+            <form class="login-form"  ng-submit="submitLoginForm()"  role="form">
               <div class="form-group">
-                  <input ng-model="loginForm.email" type="text" placeholder="Email" name="email" class="form-control">
+                <label for="username">Username</label>
+                <input type="text"  ng-model="loginForm.email"  class="form-control" id="username" placeholder="Enter Username" required>
               </div>
-
-              <!-- P A S S W O R D -->
               <div class="form-group">
-                  <input ng-model="loginForm.password" type="password" placeholder="Password" name="password" class="form-control">
+                <label for="password">Password</label>
+                <input type="password" class="form-control"  ng-model="loginForm.password"  id="password" placeholder="Enter Password" required>
               </div>
-
-              <!-- S U B M I T -->
-              <button type="submit" class="btn btn-success">
+        
+              <button type="submit" class="btn btn-primary">
                 <span ng-show="!loginForm.loading">Sign in</span>
                 <span ng-show="loginForm.loading" class="fa fa-spinner"></span>
-                <span ng-show="loginForm.loading">Signing up...</span>
+                <span ng-show="loginForm.loading">Signing in...</span>
               </button>
               <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-          </form>
+            </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+    <!--Header-->
+    <header class="stiky-header">
+    	<div class="container group">
+      	   <a class="logo" href="index.html"><img src="img/logo.jpg" alt="Ultima"/></a>
+        <a class="logo-mobile" href="index.html"><img src="img/logo-mobile.png" alt="Ultima"/></a>
+        <div class="navi-toggle group">
+        	<span class="dot"></span><span class="line"></span>
+          <span class="dot"></span><span class="line"></span>
+          <span class="dot"></span><span class="line"></span>
+          <span class="dot"></span><span class="line"></span>
+        </div>
+        <a class="btn btn-primary btn-login" href="#" data-toggle="modal" data-target="#loginModal"><i class="icon-user"></i>Login</a>
+        <nav class="main-navi">
+        	<ul>
+          	<li class="active"><a class="scroll-up" href="#">Home</a></li>
+            <li class="has-dropdown"><a class="scroll" href="#features">Serviços<i class="fa fa-caret-down"></i></a>
+            	<ul class="dropdown">
+              	<li><a href="#">Submenu Item</a></li>
+                <li><a href="#">Submenu Item</a></li>
+                <li><a href="#">Submenu Item</a></li>
+                <li><a href="#">Submenu Item</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown"><a href="coming-soon.html">Institucional<i class="fa fa-caret-down"></i></a>
+            	<ul class="dropdown">
+              	<li><a href="#">Submenu Item</a></li>
+                <li><a href="#">Submenu Item</a></li>
+                <li><a href="#">Submenu Item</a></li>
+              </ul>
+            </li>
+            <li><a href="cs-page.html">Adquira agora</a></li>
+          </ul>
         </nav>
       </div>
-    </div>
-
+    </header>
+    
+    <!--Hero Unit with Slider-->
+    <section class="page-block" id="features">
+    	<div class="container">
+        
+        
+        <div class="row">
+        
+        
     <!-- SIGNUP FORM --> 
     <form ng-submit="submitSignupForm()" id="sign-up-form" class="form-signin" name="signup">
-      <h2 class="form-signin-heading">Create an account</h2>
+      <h2 class="form-signin-heading">Crie sua conta</h2>
       <div class="row">
 
         <!-- N A M E -->
@@ -84,13 +169,13 @@
           <label>Your full name</label>
 
           <!-- For this input field make it required, and have a max length of 25 -->
-          <input type="text" class="form-control" placeholder="e.g. Nikola Tesla" name="name" ng-model="signupForm.name" ng-maxlength="50" required>
+          <input type="text" class="form-control" placeholder="exemplo. Nikola Tesla" name="name" ng-model="signupForm.name" ng-maxlength="50" required>
 
           <!-- Also, if signup.name.$dirty is true, show the message depending upon the particular properties truthiness (e.g. required
           and/or maxlength) -->
           <span class="help-block has-error" ng-if="signup.name.$dirty">
-            <span ng-show="signup.name.$error.required">Name is required.</span>
-            <span ng-show="signup.name.$error.maxlength">The name cannot be more than 50 characters.</span>
+            <span ng-show="signup.name.$error.required">Nome é obrigatório.</span>
+            <span ng-show="signup.name.$error.maxlength">O nome não pode conter mais que 50 caracteres.</span>
           </span>
         </div>
 
@@ -99,11 +184,11 @@
         <div class="control-group form-group col-md-12"
           ng-class="{'has-error':signup.title.$invalid &&
                                 signup.title.$dirty}">
-          <label>Your title</label>
-          <input type="text" class="form-control" placeholder="e.g. Genius" name="title" ng-model="signupForm.title" ng-maxlength="50" required>
+          <label>Sua função</label>
+          <input type="text" class="form-control" placeholder="exemplo. Genio" name="title" ng-model="signupForm.title" ng-maxlength="50" required>
           <span class="help-block has-error" ng-if="signup.title.$dirty">
-            <span ng-show="signup.title.$error.required">Title is required.</span>
-            <span ng-show="signup.title.$error.maxlength">The name cannot be more than 50 characters.</span>
+            <span ng-show="signup.title.$error.required">A Função é obrigatória.</span>
+            <span ng-show="signup.title.$error.maxlength">A Função não pode conter mais que 50 caracteres.</span>
           </span>
         </div>
 
@@ -112,11 +197,11 @@
         <div class="control-group form-group col-md-12"
         ng-class="{'has-error':signup.email.$invalid &&
                               signup.email.$dirty}">
-          <label>Your email address</label>
+          <label>Seu endereço de email</label>
           <input type="email" class="form-control" placeholder="nikola@tesla.com" name="email" ng-model="signupForm.email" required >
           <span class="help-block has-error" ng-if="signup.email.$dirty">
-            <span ng-show="signup.email.$error.required">Email address is required.</span>
-            <span ng-show="signup.email.$error.email">Not a valid email address.</span>
+            <span ng-show="signup.email.$error.required">Email é obrigatório.</span>
+            <span ng-show="signup.email.$error.email">Email inválido.</span>
           </span>
         </div>
 
@@ -125,98 +210,387 @@
         <div class="control-group form-group col-md-6"
         ng-class="{'has-error':signup.password.$invalid &&
                               signup.password.$dirty}">
-          <label>Choose a password</label>
+          <label>Escolha uma senha</label>
           <!-- Added the compareTo directive that compares the passowrds -->
           <input type="password" class="form-control" placeholder="at least 6 characters" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" >
           <span class="help-block has-error" ng-if="signup.password.$dirty">
-            <span ng-show="signup.password.$error.required">Password is required.</span>
-            <span ng-show="signup.password.$error.minlength">Password must be at least 6 characters.</span>
+            <span ng-show="signup.password.$error.required">Senha é obrigatório.</span>
+            <span ng-show="signup.password.$error.minlength">Senha deve possuir ao menos 6 caracteres.</span>
           </span>
         </div>
 
         <!-- C O N F I R M  P A S S W O R D -->
 
         <div class="control-group form-group col-md-6">
-          <label>Re-enter your password</label>
+          <label>Confirme sua senha</label>
           <input type="password" class="form-control" placeholder="one more time" name="confirmation" ng-model="signupForm.confirmPassword" required>
           <span class="help-block has-error" ng-if="signup.confirmation.$dirty">
-            <span ng-show="signup.password.$error.compareTo">Password must match.</span>
-            <span ng-show="signup.confirmation.$error.required">Confirmation password is required.</span>
+  `         <span ng-show="signup.password.$error.compareTo">As senhas não conferem.</span>
+            <span ng-show="signup.confirmation.$error.required">Confirmação da senha é obrigatório.</span>
           </span>
         </div>
-      </div>
+  n     </div>
 
       <br/>
 
       <!-- Disable signup button until the form has no errors -->
       <button class="btn btn-primary btn-lg btn-block" type="submit" ng-disabled="signup.$invalid">
         <span ng-show="!signupForm.loading">Create Account</span>
-        <span class="overlord-loading-spinner fa fa-spinner" ng-show="signupForm.loading" ></span>
+        <span  class="overlord-loading-spinner fa fa-spinner" ng-show="signupForm.loading" ></span>
         <span ng-show="signupForm.loading">Preparing your new account...</span>
       </button>
 
       <input type="hidden" name="_csrf" value="<%= _csrf %>" />
     </form>
+        </div>  
+      </div>    	
+    </section><!--Close Hero-->
+    
+    <!--Features-->
+    <section class="page-block" id="features">
+    	<div class="container">
+     
+        <div class="row page-header">
+          <h2>Features</h2>
+          <span>Subtext for header</span>
+        </div>
+        <div class="row features">
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="feature-img"><img src="img/features/feature1.png" width="124" height="120" alt="Editable colors"/></div>
+            <h3>Editable colors</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="feature-img"><img src="img/features/feature2.png" width="131" height="131" alt="All you need for start"/></div>
+            <h3>All you need for start</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="feature-img"><img src="img/features/feature3.png" width="72" height="72" alt="Clean code"/></div>
+            <h3>Clean code</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
+          </div>
+        </div>
+      </div>
+      <!--Tabs-->
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs central">
+            <li class="active"><a href="#clean-code" data-toggle="tab">Clean Code</a></li>
+            <li><a href="#font-icons" data-toggle="tab">Font Icons</a></li>
+            <li><a href="#more" data-toggle="tab">More</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Tab panes -->
+      <div class="container">
+        <div class="row tab-content central">
+          <div class="tab-pane fade in active col-lg-12" id="clean-code">
+          	<div class="row">
+            	<div class="col-lg-6 col-md-6 animated fadeInLeft">
+                <img src="img/features/1.png" alt="Clean Code"/>
+              </div>
+            	<div class="col-lg-6 col-md-6 animated fadeInRight">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h2>Clean code</h2>
+                    <p class="double-space-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2"><i class="feature-icon icon-support"></i></div>
+                  <div class="col-lg-10">
+                  	<p class="double-space-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2"><i class="feature-icon icon-map"></i></div>
+                  <div class="col-lg-10">
+                  	<p class="double-space-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2"><i class="feature-icon icon-gift"></i></div>
+                  <div class="col-lg-10">
+                  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
 
-
-
-  
-    <div class="container">
-        <hr>
-        <footer class="footer pull-right">
-            <div>
-                <a href="http://www.sennit.com.br">sennit.com.br</a>
-                <div>TimeSheet System</div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </footer>
+          </div>
+          <div class="tab-pane fade col-lg-12" id="font-icons">
+          	<div class="row">
+            	<div class="col-lg-6 col-md-6 animated fadeInLeft">
+                <img src="img/features/2.png" alt="Font Icons"/>
+              </div>
+            	<div class="col-lg-6 col-md-6 animated fadeInRight">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h2>800+ Font icons</h2>
+                    <p class="double-space-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2"><i class="feature-icon icon-scissors"></i></div>
+                  <div class="col-lg-10">
+                  	<p class="double-space-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2"><i class="feature-icon icon-code"></i></div>
+                  <div class="col-lg-10">
+                  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade col-lg-12" id="more">
+          	<div class="row">
+            	<div class="col-lg-6 col-md-6 animated fadeInLeft">
+                <img class="img-center" src="img/features/3.png" alt="More Features"/>
+              </div>
+            	<div class="col-lg-6 col-md-6 animated fadeInRight">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h2>More features overview</h2>
+                    <p class="double-space-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2"><i class="feature-icon icon-youtube"></i></div>
+                  <div class="col-lg-10">
+                  	<p class="double-space-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2"><i class="feature-icon icon-compass"></i></div>
+                  <div class="col-lg-10">
+                  	<p class="double-space-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2"><i class="feature-icon icon-cog"></i></div>
+                  <div class="col-lg-10">
+                  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <!--Contacts-->
+    <section class="page-block contacts" id="contacts">
+    	<div class="container">
+        <div class="row page-header">
+          <h2>Contacts</h2>
+          <span>Subtext for header</span>
+        </div>
+        <div class="row">
+        	<div class="col-lg-4 col-md-4">
+          	<div class="row space-bottom">
+            	<div class="col-lg-9 col-md-9">
+              	<h3>What we do</h3>
+              </div>
+            	<div class="col-lg-3 col-md-3">
+                <img class="img-center" src="img/contacts/man.png" alt="About Us"/>
+              </div>
+            </div>
+            <div class="row">
+            	<div class="col-lg-12">
+              	<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-lg-offset-1">
+          	<div class="row space-bottom">
+            	<div class="col-lg-8 col-md-8">
+              	<h3>Adress</h3>
+              </div>
+            	<div class="col-lg-4 col-md-4">
+                <img class="img-center" src="img/contacts/map.png" alt="Adress"/>
+              </div>
+            </div>
+            <div class="row">
+            	<div class="col-lg-12">
+              	<p>4120 Lenox Avenue, New York, NY, 10035 76 Saint Nicholas Avenue</p>
+              </div>
+            </div>
+          	<div class="row space-bottom">
+            	<div class="col-lg-8 col-md-8">
+              	<h3>Contacts</h3>
+              </div>
+            	<div class="col-lg-4 col-md-4">
+                <img class="img-center" src="img/contacts/phone.png" alt="Contacts"/>
+              </div>
+            </div>
+            <div class="row">
+            	<div class="col-lg-12">
+              	<p>+48 555 234 54 34<br/>+48 555 234 54 33<br/>info@email.com<br/>support@email.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-lg-offset-1">
+          	<div class="row space-bottom">
+            	<div class="col-lg-8 col-md-8">
+              	<h3>Contact us</h3>
+              </div>
+            	<div class="col-lg-4 col-md-4">
+                <img class="img-center" src="img/contacts/plan.png" alt="Adress"/>
+              </div>
+            </div>
+            <div class="row">
+            	<div class="col-lg-12">
+                <form method="post" class="feedback-form ajax-form" role="form">
+                  <div class="form-group">
+                    <label class="sr-only" for="name1">Name</label>
+                    <input type="text" class="form-control" name="name" id="name1" placeholder="Name">
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="email1">Email</label>
+                    <input type="email" class="form-control" name="email" id="email1" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="message">Message</label>
+                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <!-- Validation Response -->
+                  <div class="response-holder"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--Social Networks-->
+    <section class="page-block" id="social">
+    	<div class="container">
+        <div class="row page-header">
+          <h2>Find us on social networks</h2>
+          <span>Subtext for header</span>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="social-networks">
+              <a class="icon-facebook tooltipped" href="#" title="Facebook"></a>
+              <a class="icon-instagram tooltipped" href="#" title="Instagram"></a>
+              <a class="icon-twitter tooltipped" href="#" title="Twitter"></a>
+              <a class="icon-google-plus tooltipped" href="#" title="Google+"></a>
+              <a class="icon-youtube tooltipped" href="#" title="Youtube"></a>
+              <a class="icon-tumblr tooltipped" href="#" title="Tumblr"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--Footer-->
+    <footer class="footer">
+    	<div class="container">
+      	<div class="row">
+        	<div class="col-lg-12">
+          	<h2 class="text-center text-light">Subscribe to our newsletter</h2>
+            <p class="text-light text-center">Sign up now to our newsletter and you'll be one of the first to know when the site is ready:</p>
+          </div>
+        </div>
+        <div class="row">
+        
+					<!-- Begin MailChimp Signup Form -->
+          <form class="subscribe-form validate" action="http://8guild.us3.list-manage.com/subscribe/post?u=168a366a98d3248fbc35c0b67&amp;id=73d49e0d23" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+            <div class="form-group col-lg-7 col-md-8 col-sm-8 col-lg-offset-1">
+              <label class="sr-only" for="mce-EMAIL">Email address</label>
+              <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Enter email" required>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_168a366a98d3248fbc35c0b67_73d49e0d23" value=""></div>
+            </div>
+            <div class="form-group col-lg-3 col-md-4 col-sm-4"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary btn-block"></div>
+          </form>
+          <!-- Close MailChimp Signup Form -->
+          
+        </div>
+        <div class="row">
+        	<div class="col-lg-12">
+          	<p class="copyright">&copy; 2014 ULTIMA. All Rights Reserved. Designed by  <a href="http://8guild.com/" target="_blank">8Guild</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!--Scroll To Top Button-->
+    <div id="scroll-top" class="scroll-up"><i class="icon-arrow-up"></i></div>
+      <!--SCRIPTS-->
+      <script src="/js/dependencies/sails.io.js"></script>
+      <script src="/js/dependencies/1-angular.min.js"></script>
+      <script src="/js/dependencies/2-jquery-1.11.2.min.js"></script>
+      <script src="/js/dependencies/3-jquery.easing.1.3.js"></script>
+      <script src="/js/dependencies/4-bootstrap.min.js"></script>
+      <script src="/js/dependencies/5-jquery.touchSwipe.min.js"></script>
+      <script src="/js/dependencies/6-jquery.placeholder.js"></script>
+      <script src="/js/dependencies/7-jquery.validate.min.js"></script>
+      <script src="/js/dependencies/8-gallery.js"></script>
+      <script src="/js/dependencies/9-jquery.fitvids.js"></script>
+      <script src="/js/dependencies/91-jquery.bxslider.min.js"></script>
+      <script src="/js/dependencies/92-chart.js"></script>
+      <script src="/js/dependencies/93-color-switcher.js"></script>
+      <script src="/js/dependencies/94-landing2.js"></script>
+      <script src="/js/dependencies/angular-animate.min.js"></script>
+      <script src="/js/dependencies/angular-aria.min.js"></script>
+      <script src="/js/dependencies/angular-cookies.min.js"></script>
+      <script src="/js/dependencies/angular-loader.min.js"></script>
+      <script src="/js/dependencies/angular-message-format.min.js"></script>
+      <script src="/js/dependencies/angular-messages.min.js"></script>
+      <script src="/js/dependencies/angular-resource.min.js"></script>
+      <script src="/js/dependencies/angular-route.min.js"></script>
+      <script src="/js/dependencies/angular-sanitize.min.js"></script>
+      <script src="/js/dependencies/angular-scenario.js"></script>
+      <script src="/js/dependencies/angular-toastr.js"></script>
+      <script src="/js/dependencies/angular-touch.min.js"></script>
+      <script src="/js/dependencies/coming-soon.js"></script>
+      <script src="/js/dependencies/compareTo.module.js"></script>
+      <script src="/js/dependencies/components-styles.js"></script>
+      <script src="/js/dependencies/demo.js"></script>
+      <script src="/js/dependencies/excanvas.js"></script>
+      <script src="/js/dependencies/icheck.min.js"></script>
+      <script src="/js/dependencies/jquery.bootstrap.wizard.js"></script>
+      <script src="/js/dependencies/modernizr.custom.js"></script>
+      <script src="/js/dependencies/respond.min.js"></script>
+      <script src="/js/public/signup/SignupModule.js"></script>
+      <script src="/js/private/dashboard/DashboardModule.js"></script>
+      <script src="/js/public/homepage/HomepageModule.js"></script>
+      <script src="/js/private/dashboard/DashboardController.js"></script>
+      <script src="/js/public/homepage/HomepageController.js"></script>
+      <script src="/js/public/signup/SignupController.js"></script>
+      <!--SCRIPTS END-->
+    
+    
+    <!--Google Remarketing Tag (Placed before </body>)-->
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 966923546;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+    <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/966923546/?value=0&amp;guid=ON&amp;script=0"/>
     </div>
-
-
-
-    <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/dependencies/1-angular.min.js"></script>
-    <script src="/js/dependencies/2-jquery-1.11.2.min.js"></script>
-    <script src="/js/dependencies/3-jquery.easing.1.3.js"></script>
-    <script src="/js/dependencies/4-bootstrap.min.js"></script>
-    <script src="/js/dependencies/5-jquery.touchSwipe.min.js"></script>
-    <script src="/js/dependencies/6-jquery.placeholder.js"></script>
-    <script src="/js/dependencies/7-jquery.validate.min.js"></script>
-    <script src="/js/dependencies/8-gallery.js"></script>
-    <script src="/js/dependencies/9-jquery.fitvids.js"></script>
-    <script src="/js/dependencies/91-jquery.bxslider.min.js"></script>
-    <script src="/js/dependencies/92-chart.js"></script>
-    <script src="/js/dependencies/93-color-switcher.js"></script>
-    <script src="/js/dependencies/94-landing2.js"></script>
-    <script src="/js/dependencies/angular-animate.min.js"></script>
-    <script src="/js/dependencies/angular-aria.min.js"></script>
-    <script src="/js/dependencies/angular-chart.min.js"></script>
-    <script src="/js/dependencies/angular-cookies.min.js"></script>
-    <script src="/js/dependencies/angular-loader.min.js"></script>
-    <script src="/js/dependencies/angular-message-format.min.js"></script>
-    <script src="/js/dependencies/angular-messages.min.js"></script>
-    <script src="/js/dependencies/angular-resource.min.js"></script>
-    <script src="/js/dependencies/angular-route.min.js"></script>
-    <script src="/js/dependencies/angular-sanitize.min.js"></script>
-    <script src="/js/dependencies/angular-scenario.js"></script>
-    <script src="/js/dependencies/angular-toastr.js"></script>
-    <script src="/js/dependencies/angular-touch.min.js"></script>
-    <script src="/js/dependencies/coming-soon.js"></script>
-    <script src="/js/dependencies/compareTo.module.js"></script>
-    <script src="/js/dependencies/components-styles.js"></script>
-    <script src="/js/dependencies/demo.js"></script>
-    <script src="/js/dependencies/excanvas.js"></script>
-    <script src="/js/dependencies/icheck.min.js"></script>
-    <script src="/js/dependencies/jquery.bootstrap.wizard.js"></script>
-    <script src="/js/dependencies/modernizr.custom.js"></script>
-    <script src="/js/dependencies/respond.min.js"></script>
-    <script src="/js/public/signup/SignupModule.js"></script>
-    <script src="/js/private/dashboard/DashboardModule.js"></script>
-    <script src="/js/public/homepage/HomepageModule.js"></script>
-    <script src="/js/private/dashboard/DashboardController.js"></script>
-    <script src="/js/public/homepage/HomepageController.js"></script>
-    <script src="/js/public/signup/SignupController.js"></script>
-    <!--SCRIPTS END-->
-  </body>
+    </noscript>
+    
+  </body><!--Close Body-->
 </html>
+
+
+
 

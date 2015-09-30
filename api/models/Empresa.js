@@ -9,11 +9,10 @@
 module.exports = {
 
   attributes: {
-  	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
+    coperativas:{
+      collection: 'coperativa',
+      via: 'empresas'
+    }
   }
 
 };
