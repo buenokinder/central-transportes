@@ -9,6 +9,11 @@
 module.exports = {
 
   attributes: {
+    nome:{
+      type: 'string',
+      required: true
+      
+    },
     coperativas:{
       collection: 'coperativa',
       via: 'empresas'

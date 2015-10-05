@@ -1,14 +1,70 @@
 {
   "data": {
     "aliasendereco": [],
-    "centraltransporte": [],
+    "centraltransporte": [
+      {
+        "nome": "Central Teste 123",
+        "empresa": 1,
+        "createdAt": "2015-10-05T21:14:45.704Z",
+        "updatedAt": "2015-10-05T21:14:45.704Z",
+        "id": 1
+      },
+      {
+        "nome": "Central Brooklin",
+        "empresa": 1,
+        "createdAt": "2015-10-05T21:15:05.795Z",
+        "updatedAt": "2015-10-05T21:15:05.795Z",
+        "id": 2
+      }
+    ],
     "centrocusto": [],
-    "ciaaerea": [],
+    "ciaaerea": [
+      {
+        "nome": "'Avianca'",
+        "createdAt": "2015-10-05T20:44:46.461Z",
+        "updatedAt": "2015-10-05T20:44:46.461Z",
+        "id": 1
+      },
+      {
+        "nome": "Gol",
+        "createdAt": "2015-10-05T20:45:23.848Z",
+        "updatedAt": "2015-10-05T20:45:23.848Z",
+        "id": 2
+      },
+      {
+        "nome": "Azul",
+        "createdAt": "2015-10-05T20:45:27.513Z",
+        "updatedAt": "2015-10-05T20:45:27.513Z",
+        "id": 3
+      },
+      {
+        "nome": "Tam",
+        "createdAt": "2015-10-05T20:45:30.930Z",
+        "updatedAt": "2015-10-05T20:45:30.930Z",
+        "id": 4
+      }
+    ],
     "configuracao": [],
     "coperativa": [],
-    "empresa": [],
+    "empresa": [
+      {
+        "nome": "Sennit",
+        "createdAt": "2015-10-05T21:14:35.913Z",
+        "updatedAt": "2015-10-05T21:14:35.913Z",
+        "id": 1
+      }
+    ],
     "estado": [],
-    "itemfinanceiro": [],
+    "itemfinanceiro": [
+      {
+        "codigo": "001",
+        "nome": "Taxi",
+        "empresa": 1,
+        "createdAt": "2015-10-05T21:16:15.876Z",
+        "updatedAt": "2015-10-05T21:16:15.876Z",
+        "id": 1
+      }
+    ],
     "motorista": [],
     "pesquisasatisfacao": [],
     "programacao": [],
@@ -201,6 +257,9 @@
       }
     },
     "empresa": {
+      "nome": {
+        "type": "string"
+      },
       "id": {
         "type": "integer",
         "autoIncrement": true,
@@ -593,14 +652,22 @@
   },
   "counters": {
     "aliasendereco": {},
-    "centraltransporte": {},
+    "centraltransporte": {
+      "id": 2
+    },
     "centrocusto": {},
-    "ciaaerea": {},
+    "ciaaerea": {
+      "id": 4
+    },
     "configuracao": {},
     "coperativa": {},
-    "empresa": {},
+    "empresa": {
+      "id": 1
+    },
     "estado": {},
-    "itemfinanceiro": {},
+    "itemfinanceiro": {
+      "id": 1
+    },
     "motorista": {},
     "pesquisasatisfacao": {},
     "programacao": {},
