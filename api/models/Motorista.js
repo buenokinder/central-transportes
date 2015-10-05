@@ -25,7 +25,7 @@ module.exports = {
       type: 'string',
       required: true
     },
-      empresa: {
+    empresa: {
       model: 'empresa',
       required: true
     }

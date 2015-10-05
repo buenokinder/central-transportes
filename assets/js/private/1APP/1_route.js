@@ -66,11 +66,11 @@ app.config(['$routeProvider',  function ($routeProvider) {
     
     
       
-     $routeProvider.when("/centraltransportes", {
+     $routeProvider.when("/centraltransporte", {
 			templateUrl: "/views/centraltransportes/index.html"
-		}).when("/centraltransportes/new", {		
+		}).when("/centraltransporte/new", {		
 		  templateUrl: "/views/centraltransportes/new.html"
-		}).when("/centraltransportes/:id", {		
+		}).when("/centraltransporte/:id", {		
 		  templateUrl: "/views/centraltransportes/edit.html"
 		});
     
