@@ -33,15 +33,13 @@ module.exports = {
     // The encrypted password for the user
     // e.g. asdgh8a249321e9dhgaslcbqn2913051#T(@GHASDGA
     encryptedPassword: {
-      type: 'string',
-      required: true
+      type: 'string'
     },
 
     // The timestamp when the the user last logged in
     // (i.e. sent a username and password to the server)
     lastLoggedIn: {
       type: 'date',
-      required: true,
       defaultsTo: new Date(0)
     },
       // The timestamp when the the user last logged in

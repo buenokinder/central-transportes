@@ -14,8 +14,12 @@ module.exports = {
       type: 'string',
       required: true
     },
-	nome: {
+	  nome: {
       type: 'string',
+      required: true
+    },
+      empresa: {
+      model: 'empresa',
       required: true
     }
     

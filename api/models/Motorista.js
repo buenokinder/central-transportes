@@ -13,6 +13,22 @@ module.exports = {
   	/* e.g.
   	nickname: 'string'
   	*/
+	  nome: {
+      type: 'string',
+      required: true
+    },
+    telefone: {
+      type: 'string',
+      required: true
+    },
+	  email: {
+      type: 'string',
+      required: true
+    },
+      empresa: {
+      model: 'empresa',
+      required: true
+    }
     
   }
 

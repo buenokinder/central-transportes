@@ -1,0 +1,248 @@
+
+  
+  
+    <section class="page-block" id="wizard">
+    	<div class="container">
+     
+        <div class="row">
+        	<div class="col-lg-12">
+          	<div class="wizard">
+            	<div class="header">
+              	<h3>Nova Solicitação</h3>
+                <div class="progress-bar group">
+                	<div class="overlay"></div>
+                	<div class="line"></div>
+                	<a class="step-link left current" href="#step01" data-toggle="tab"><span class="status"></span></a>
+                	<a class="step-link middle" href="#step02" data-toggle="tab"><span class="status"></span></a>
+                	<a class="step-link right" href="#step03" data-toggle="tab"><span class="status"></span></a>
+                </div>
+              </div>
+              
+              <form method="post" id="wizard-form" class="wizard-form body" role="form">
+              
+              	<!--Step 1-->
+              	<div class="wizard-step fade in active" id="step01">
+                <div class="tab-links-wrap">
+                	<div class="overlay"></div>
+                  <div class="row tab-links">
+                   <div class="tab-link active col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <a href="#intinerario" data-toggle="tab"><i class="fa fa-user"></i><span>Intinerario</span></a>
+                    </div>
+                    <div class="tab-link col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <a href="#detalhes" data-toggle="tab"><i class="fa fa-suitcase"></i><span>Detalhes do Initerário</span></a>
+                    </div>
+               
+                  </div>
+                </div>
+                  <div class="tabs">
+                  	<div class="tab row fade in active" id="intinerario">
+                        <div class="row">
+                        	<div class="col-lg-6 col-md-6 col-sm-6 form-group">
+                          
+                         
+                             <label for="Autocomplete2">Estou em:</label>
+                                <input type="text" id="Autocomplete2" ng-model="origem" class="form-control" ng-autocomplete options="options" details="details"/>
+                           </div>
+                         
+                        	<div class="col-lg-6 col-md-6 col-sm-6 form-group">
+                            
+                                
+                            <label for="Autocomplete3">Indo para:</label>
+                                <input type="text" id="Autocomplete3" ng-model="destino" class="form-control" ng-autocomplete options="options" details="details"/>
+                          </div>
+                      
+                  
+                            <div class="col-lg-6" >
+                                <map zoom="14" center="-23.7699298, -46.4469157" style="height:70%" on-click="logLatLng()" >
+        <directions 
+          draggable="true"
+          panel="directions-panel"
+          travel-mode="DRIVING"
+          origin="{{origem}}"
+          destination="{{destino}}">
+        </directions>
+      </map> 
+                              
+                            </div>
+                             <div class="col-lg-6" >
+                                     
+                          <div class="row">
+                            <div id="directions-panel" style="width: 90%; height: 300px; float:left;  overflow: auto; padding: 0px 5px">
+    </div>
+                            </div>
+                            </div>
+                         </div>
+               
+                    </div>
+                  	<div class="tab row fade" id="detalhes">
+                         <div class="col-lg-12">
+                         <div class="row">
+                           <div class="col-lg-3">
+                               
+                                 
+                                <div class="radio custom">
+                  <label>
+  
+                    <input icheck type="radio" name="optionsRadios" ng-model="tipodestino" id="radio1" value="idavolta" checked>
+                 
+                    Ida e Volta
+                  </label>
+                  </div>
+                  </div>
+                    <div class="col-lg-3">
+                    <div class="radio custom">
+                  <label>
+                    <input icheck type="radio" name="optionsRadios" ng-model="tipodestino"   id="radio2" value="ida">
+                    Somente Ida
+                  </label>
+                </div>
+                             
+                           </div>
+                             
+                           </div>
+                                   <div class="row">
+                        	<div class="col-lg-6 col-md-6 col-sm-6 form-group">
+                             <div class="form-group">
+                                <label for="profession">Ida</label>
+                                 <div class="dropdown">
+  <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="" href="">
+    <div class="input-group"><input type="text" class="form-control" data-ng-model="dataHoraIda"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    </div>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <datetimepicker data-ng-model="dataHoraIda" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
+  </ul>
+</div>
+</div>
+                        	</div>
+                          
+                     
+                          <div  class="col-lg-6 col-md-6 col-sm-6 form-group">
+                            <div ng-show="boleanIdaVolta()" class="form-group">
+                                <label for="profession">Volta</label>
+                           
+                               <div class="dropdown">
+  <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="" href="">
+    <div class="input-group"><input type="text" class="form-control" data-ng-model="dataHoraVolta"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    </div>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <datetimepicker data-ng-model="dataHoraVolta" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
+  </ul>
+</div>
+</div>
+                            </div>
+                          </div>
+                           </div>
+                    </div>
+               
+                  
+                  </div>
+                </div>
+                
+                <!--Step 2-->
+                <div class="wizard-step fade" id="step02">
+                  <div class="tab-links-wrap">
+                    <div class="overlay"></div>
+                    <div class="row tab-links">
+                      <div class="tab-link active col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <a href="#custos" data-toggle="tab"><i class="fa fa-anchor"></i>Custos</a>
+                      </div>
+                      <div class="tab-link col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <a href="#outros" data-toggle="tab"><i class="fa fa-anchor"></i>Outros</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tabs">
+                  	<div class="tab row fade in active" id="custos">
+                     <div class="col-lg-12">
+                        <div class="row">
+                        	<div class="col-lg-6 col-md-6 col-sm-6 form-group">
+                            <label for="security">Item Financeiro</label>
+                            <input type="text" name="security" class="form-control" id="security" placeholder="Enter social security no" required="">
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-6 form-group">
+                            <label for="security">Central Transportes</label>
+                            <input type="text" name="security" class="form-control" id="security" placeholder="Enter social security no" required="">
+                          </div>
+                        </div>
+                        <div class="row">
+                        	<div class="col-lg-6 col-md-6 col-sm-6 form-group">
+                            <label for="exp_date">Centro Custos</label>
+                            <input type="text" name="exp_date" class="form-control" id="exp_date" placeholder="Enter ID expiry date">
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-6 form-group">
+                            <div class="controls">
+                                       
+
+                                        <div style="vertical-align: top; text-align:right;">
+                                            <button data-bind="visible: self.Editavel, click: $root.InserirProduto" class="btn btn-info btn-sm">
+                                                Adicionar
+                                            </button>
+                                        </div>
+
+                                        <table id="products1" style="clear:both; margin-top:10px;">
+                                            <tbody data-bind="foreach: Aux, visible: Produtos().length > 0">
+                                                <tr>
+                                                    <td data-bind="enable: self.Editavel, text: SapDestinoCustos.Descricao" style="font-size: 11px; color: #000; text-transform: uppercase; font-size: 11px; padding-left: 4%; width:75%">0100906200 - GERÊNCIA DE PROJETO E INOVAÇÃO DE TI</td>
+                                                    <td><input type="text" class="form-control" data-bind="enable: self.Editavel, value: Percentual" style="width:75px; height:28px;"></td>
+                                                    <td><span style="border: 1px solid #ccc!important;" class="input-group-addon">%</span></td>
+                                                    <td style="padding-left:15px;">
+                                                        <button data-bind="visible: self.Editavel, click: $root.DeletarProduto" title="Excluir" class="btn btn-danger" style="height: 28px; line-height: 0px;">
+                                                            x
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div id="mensagemCusto100" style="color: #ff0000; font-size: 14px; padding-bottom: 10px; padding-top: 10px; display:none;">
+                                            *O valor total de percentual do Centro de Custo deve ser 100%
+                                        </div>
+                                    </div>
+                            
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  	<div class="tab row fade" id="outros">
+                    a1
+                     
+                    </div>
+                  </div>
+                </div>
+                
+                <!--Step 3-->
+                <div class="wizard-step fade" id="step03">
+                  <div class="tab-links-wrap">
+                    <div class="overlay"></div>
+                    <div class="row tab-links">
+                      <div class="tab-link active col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <a href="#aceite" data-toggle="tab"><i class="fa fa-anchor"></i>Aceite</a>
+                      </div>
+                    
+                    </div>
+                  </div>
+                  <div class="tabs">
+                  	<div class="tab row fade in active" id="aceite">
+                      <div class="col-lg-12">
+                        
+                      </div>
+                    </div>
+                  	
+                  </div>
+                </div>
+                
+                <div class="wizard-footer group">
+                	<div class="buttons">
+                    <a class="btn btn-primary prev-tab hidden" href="#">Voltar</a>
+                    <a class="btn btn-primary next-tab" href="#">Avançar</a>
+                    <input class="btn btn-primary hidden" type="submit" id="submit-wizard" value="Enviar Solicitação">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

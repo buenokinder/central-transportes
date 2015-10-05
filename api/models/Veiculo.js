@@ -10,10 +10,26 @@ module.exports = {
 
   attributes: {
   	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
+  	
+     nome: {
+      type: 'string',
+      required: true
+    }, marca: {
+      type: 'string',
+      required: true
+    }, placa: {
+      type: 'string',
+      required: true
+    }, ano: {
+      type: 'integer',
+      required: true
+    }, lugares: {
+      type: 'integer',
+      required: true
+    },
+      empresa: {
+      model: 'empresa'
+    }
   }
 
 };

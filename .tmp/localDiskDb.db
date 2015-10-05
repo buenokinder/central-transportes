@@ -1,0 +1,619 @@
+{
+  "data": {
+    "aliasendereco": [],
+    "centraltransporte": [],
+    "centrocusto": [],
+    "ciaaerea": [],
+    "configuracao": [],
+    "coperativa": [],
+    "empresa": [],
+    "estado": [],
+    "itemfinanceiro": [],
+    "motorista": [],
+    "pesquisasatisfacao": [],
+    "programacao": [],
+    "solicitacao": [],
+    "teste": [],
+    "user": [
+      {
+        "name": "Carlos Bueno",
+        "title": "Arquiteto",
+        "email": "carlos@sennit.com.br",
+        "encryptedPassword": "$2a$10$ZBxZJFdNnErIDyGQqJL98.gLJmJEC1gSaKeAzGFsHuwJzYrbeuPfO",
+        "lastLoggedIn": "2015-10-02T04:31:28.303Z",
+        "gravatarUrl": "http://www.gravatar.com/avatar/2349f18210ec14736f2976a63eb1a999?",
+        "admin": false,
+        "createdAt": "2015-10-02T04:31:28.316Z",
+        "updatedAt": "2015-10-02T04:31:28.316Z",
+        "id": 1
+      }
+    ],
+    "veiculo": [],
+    "voo": [],
+    "coperativa_users__user_users_user": [],
+    "coperativa_empresas__empresa_coperativas": [],
+    "solicitacao_passageiros__user_passageiros_user": [],
+    "centrocusto_centrocustos_centrocusto__solicitacao_centrocustos": []
+  },
+  "schema": {
+    "aliasendereco": {
+      "nome": {
+        "type": "string"
+      },
+      "endereco": {
+        "type": "string"
+      },
+      "bairro": {
+        "type": "string"
+      },
+      "estado": {
+        "type": "integer",
+        "model": "estado",
+        "foreignKey": true,
+        "alias": "estado"
+      },
+      "empresa": {
+        "type": "integer",
+        "model": "empresa",
+        "foreignKey": true,
+        "alias": "empresa"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Ativo",
+          "Inativo"
+        ],
+        "defaultsTo": "Ativo"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "centraltransporte": {
+      "nome": {
+        "type": "string"
+      },
+      "empresa": {
+        "type": "integer",
+        "model": "empresa",
+        "foreignKey": true,
+        "alias": "empresa"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "centrocusto": {
+      "codigo": {
+        "type": "string"
+      },
+      "nome": {
+        "type": "string"
+      },
+      "empresa": {
+        "type": "integer",
+        "model": "empresa",
+        "foreignKey": true,
+        "alias": "empresa"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "ciaaerea": {
+      "nome": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "configuracao": {
+      "logo": {
+        "type": "string"
+      },
+      "cor": {
+        "type": "string"
+      },
+      "urlsmtp": {
+        "type": "string"
+      },
+      "usersmtp": {
+        "type": "string"
+      },
+      "portasmtp": {
+        "type": "string"
+      },
+      "senhasmtp": {
+        "type": "string"
+      },
+      "empresa": {
+        "type": "integer",
+        "model": "empresa",
+        "foreignKey": true,
+        "alias": "empresa"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "coperativa": {
+      "nome": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "empresa": {
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "estado": {
+      "nome": {
+        "type": "string"
+      },
+      "sigla": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "itemfinanceiro": {
+      "codigo": {
+        "type": "string"
+      },
+      "nome": {
+        "type": "string"
+      },
+      "empresa": {
+        "type": "integer",
+        "model": "empresa",
+        "foreignKey": true,
+        "alias": "empresa"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "motorista": {
+      "nome": {
+        "type": "string"
+      },
+      "telefone": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "empresa": {
+        "type": "integer",
+        "model": "empresa",
+        "foreignKey": true,
+        "alias": "empresa"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "pesquisasatisfacao": {
+      "pesquisa": {
+        "type": "string"
+      },
+      "empresa": {
+        "type": "integer",
+        "model": "empresa",
+        "foreignKey": true,
+        "alias": "empresa"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "programacao": {
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "solicitacao": {
+      "dataHora": {
+        "type": "date"
+      },
+      "dataHoraRetorno": {
+        "type": "date"
+      },
+      "origem": {
+        "type": "integer",
+        "model": "aliasendereco",
+        "foreignKey": true,
+        "alias": "origem"
+      },
+      "destino": {
+        "type": "integer",
+        "model": "aliasendereco",
+        "foreignKey": true,
+        "alias": "destino"
+      },
+      "itemfinanceiro": {
+        "type": "integer",
+        "model": "itemfinanceiro",
+        "foreignKey": true,
+        "alias": "itemfinanceiro"
+      },
+      "centraltransporte": {
+        "type": "integer",
+        "model": "centraltransporte",
+        "foreignKey": true,
+        "alias": "centraltransporte"
+      },
+      "observacao": {
+        "type": "string"
+      },
+      "estado": {
+        "type": "string"
+      },
+      "empresa": {
+        "type": "integer",
+        "model": "empresa",
+        "foreignKey": true,
+        "alias": "empresa"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Em Analise",
+          "Programado"
+        ],
+        "defaultsTo": "Em Analise"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "teste": {
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "name": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "encryptedPassword": {
+        "type": "string"
+      },
+      "lastLoggedIn": {
+        "type": "date",
+        "defaultsTo": "1970-01-01T00:00:00.000Z"
+      },
+      "admin": {
+        "type": "boolean",
+        "defaultsTo": false
+      },
+      "gravatarUrl": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "veiculo": {
+      "nome": {
+        "type": "string"
+      },
+      "marca": {
+        "type": "string"
+      },
+      "placa": {
+        "type": "string"
+      },
+      "ano": {
+        "type": "integer"
+      },
+      "lugares": {
+        "type": "integer"
+      },
+      "empresa": {
+        "type": "integer",
+        "model": "empresa",
+        "foreignKey": true,
+        "alias": "empresa"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "voo": {
+      "status": {
+        "type": "string",
+        "enum": [
+          "Embarque",
+          "Desembarque"
+        ],
+        "defaultsTo": "Embarque"
+      },
+      "tipo": {
+        "type": "date"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "coperativa_users__user_users_user": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "coperativa_users": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "coperativa",
+        "on": "id",
+        "via": "user_users_user"
+      },
+      "user_users_user": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "user",
+        "on": "id",
+        "via": "coperativa_users"
+      }
+    },
+    "coperativa_empresas__empresa_coperativas": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "coperativa_empresas": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "coperativa",
+        "on": "id",
+        "via": "empresa_coperativas"
+      },
+      "empresa_coperativas": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "empresa",
+        "on": "id",
+        "via": "coperativa_empresas"
+      }
+    },
+    "solicitacao_passageiros__user_passageiros_user": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "solicitacao_passageiros": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "solicitacao",
+        "on": "id",
+        "via": "user_passageiros_user"
+      },
+      "user_passageiros_user": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "user",
+        "on": "id",
+        "via": "solicitacao_passageiros"
+      }
+    },
+    "centrocusto_centrocustos_centrocusto__solicitacao_centrocustos": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "solicitacao_centrocustos": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "solicitacao",
+        "on": "id",
+        "via": "centrocusto_centrocustos_centrocusto"
+      },
+      "centrocusto_centrocustos_centrocusto": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "centrocusto",
+        "on": "id",
+        "via": "solicitacao_centrocustos"
+      }
+    }
+  },
+  "counters": {
+    "aliasendereco": {},
+    "centraltransporte": {},
+    "centrocusto": {},
+    "ciaaerea": {},
+    "configuracao": {},
+    "coperativa": {},
+    "empresa": {},
+    "estado": {},
+    "itemfinanceiro": {},
+    "motorista": {},
+    "pesquisasatisfacao": {},
+    "programacao": {},
+    "solicitacao": {},
+    "teste": {},
+    "user": {
+      "id": 1
+    },
+    "veiculo": {},
+    "voo": {},
+    "coperativa_users__user_users_user": {},
+    "coperativa_empresas__empresa_coperativas": {},
+    "solicitacao_passageiros__user_passageiros_user": {},
+    "centrocusto_centrocustos_centrocusto__solicitacao_centrocustos": {}
+  }
+}

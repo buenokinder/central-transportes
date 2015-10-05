@@ -10,9 +10,14 @@ module.exports = {
 
   attributes: {
   	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
+  	 pesquisa: {
+      type: 'string',
+      required: true
+    },
+      empresa: {
+      model: 'empresa',
+      required: true
+    }
     
   }
 
