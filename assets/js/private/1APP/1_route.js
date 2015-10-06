@@ -23,8 +23,8 @@ app.config(['$routeProvider',  function ($routeProvider) {
 			templateUrl: "/views/veiculo/index.html"
 		}).when("/veiculo/new", {		
 		  templateUrl: "/views/veiculo/new.html"
-		}).when("/usuario/:id", {		
-		  templateUrl: "/views/usuario/edit.html"
+		}).when("/veiculo/:id", {		
+		  templateUrl: "/views/veiculo/edit.html"
 		});
     
      $routeProvider.when("/motorista", {
