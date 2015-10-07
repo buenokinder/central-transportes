@@ -5,8 +5,8 @@ app.controller('SolicitacaoController', [ '$scope', 'ciaAereaService','itemFinan
 	
 	$scope.init = function(){
 		ciaAereaService.getCiaAerea(callbackCiaAerea);
-	centralTransporteService.getCentralTransporte(callbackCentralTransporte);
-	itemFinanceiroService.getCentralTransporte(callbackItemFinanceiro);
+		centralTransporteService.getCentralTransporte(callbackCentralTransporte);
+		itemFinanceiroService.getItemFinanceiro(callbackItemFinanceiro);
 	};
 	
 	   
