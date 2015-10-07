@@ -25,7 +25,7 @@
                 HtmlFormBody += "<th style='width: 30px;'><input type='checkbox' value='true' data-bind='checked: selectAll' /></th><th ng-repeat='field in fields' class='text-center' id='Sistema.Id' style='cursor:pointer'>{{field.value}}</th><th  ng-show='exibir(strupdate)'>Ações</th></tr></thead>";
                 HtmlFormBody += "<tbody><tr ng-repeat='datum in data' ng-click='ViewItem(datum)' style='cursor:pointer'><td><input type='checkbox' /></td><td ng-repeat='field in fields' >";
                 HtmlFormBody += "<span ng-repeat='(key, value) in datum ' ng-show='(key==field.name)'>{{ verifica(value,field.sub, field.type)}}</span></td><td class='col-lg-3 col-md-4 col-sm-5 text-center'  ng-show='exibir(strupdate)'><a href='#/{{view}}/{{datum.id}}' class='btn btn-primary btn-sm'><i class='fa fa-pencil' aria-hidden='true'></i></a>";
-                HtmlFormBody += "<button type='button' class='btn btn-default btn-sm' ng-click='delete(datum.id)' aria-label='Left Align'><i class='fa fa-trash-o' aria-hidden='true'></i></button></td></tr></tbody>";
+                HtmlFormBody += "<button type='button' class='btn btn-default btn-sm' ng-click='deletedata(datum.id)' aria-label='Left Align'><i class='fa fa-trash-o' aria-hidden='true'></i></button></td></tr></tbody>";
                 HtmlFormBody += "<tfoot><tr><td colspan='6' class='row'><div><ul class='pagination'><li><a href='#'>«</a></li><li ng-repeat='page in TotalPages' ng-class=&quot;{'active': page == ActualPage }&quot;><a href='' ng-click='Pagina(page)'>{{page}}</a></li><li><a href='#'>»</a></li></ul>";
                 HtmlFormBody += "</div></td></tr></tfoot></table></div></div></div>";
                 console.log(HtmlFormBody);
@@ -129,7 +129,7 @@
 
 
 
-                $scope.delete = function (id) {
+                $scope.deletedata = function (id) {
                     $http.delete('/' + $scope.listaname +'/' + id )
                         .then(function (project) {
                         $scope.refreshPage();

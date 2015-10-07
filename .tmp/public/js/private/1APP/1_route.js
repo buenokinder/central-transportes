@@ -23,8 +23,8 @@ app.config(['$routeProvider',  function ($routeProvider) {
 			templateUrl: "/views/veiculo/index.html"
 		}).when("/veiculo/new", {		
 		  templateUrl: "/views/veiculo/new.html"
-		}).when("/usuario/:id", {		
-		  templateUrl: "/views/usuario/edit.html"
+		}).when("/veiculo/:id", {		
+		  templateUrl: "/views/veiculo/edit.html"
 		});
     
      $routeProvider.when("/motorista", {
@@ -66,11 +66,11 @@ app.config(['$routeProvider',  function ($routeProvider) {
     
     
       
-     $routeProvider.when("/centraltransportes", {
+     $routeProvider.when("/centraltransporte", {
 			templateUrl: "/views/centraltransportes/index.html"
-		}).when("/centraltransportes/new", {		
+		}).when("/centraltransporte/new", {		
 		  templateUrl: "/views/centraltransportes/new.html"
-		}).when("/centraltransportes/:id", {		
+		}).when("/centraltransporte/:id", {		
 		  templateUrl: "/views/centraltransportes/edit.html"
 		});
     
