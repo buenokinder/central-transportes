@@ -28,11 +28,14 @@ app.config(['$routeProvider',  function ($routeProvider) {
 		});
     
      $routeProvider.when("/motorista", {
-			templateUrl: "/views/motorista/index.html"
+			templateUrl: "/views/motorista/index.html",
+			controller: 'MotoristaController'
 		}).when("/motorista/new", {		
-		  templateUrl: "/views/motorista/new.html"
+		  templateUrl: "/views/motorista/new.html",
+		  controller: 'MotoristaController'
 		}).when("/motorista/:id", {		
-		  templateUrl: "/views/motorista/edit.html"
+		  templateUrl: "/views/motorista/edit.html",
+		  controller: 'MotoristaUpdateController'
 		});
     
     
@@ -64,7 +67,13 @@ app.config(['$routeProvider',  function ($routeProvider) {
 		  templateUrl: "/views/centrocusto/edit.html"
 		});
     
-    
+    $routeProvider.when("/itemfinanceiro", {
+			templateUrl: "/views/itemfinanceiro/index.html"
+		}).when("/itemfinanceiro/new", {		
+		  templateUrl: "/views/itemfinanceiro/new.html"
+		}).when("/itemfinanceiro/:id", {		
+		  templateUrl: "/views/itemfinanceiro/edit.html"
+		});
       
      $routeProvider.when("/centraltransporte", {
 			templateUrl: "/views/centraltransportes/index.html"

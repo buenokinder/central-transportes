@@ -94,6 +94,7 @@
                             range.push(i + 1);
                         }
                         $scope.TotalPages = range;
+                        console.log(total);
                     });
 
                     var query;

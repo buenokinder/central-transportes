@@ -1,3 +1,18 @@
-<section >
-    <form-view fields="[{'name': 'nome', 'value': 'Nome' },{'name': 'telefone', 'value': 'Telefone' },{'name': 'email', 'value': 'Email' },{'name': 'empresa', 'value': 'Empresa'}]" listaname="motorista" label="Motorista" redirecionar="motorista" strupdate="false"></form-view>
-</section>
+<form ng-init="init()">
+    <div class="container">
+        <div class="form-group">
+            <label>Name: </label>
+            <input type="text" class="form-control" placeholder="Digite o nome" ng-model="motorista.nome">
+            <label>Telefone: </label>
+            <input type="text" class="form-control" placeholder="Digite o número do Telefone" ng-model="motorista.telefone">
+            <label>E-mail: </label>
+            <input type="text" class="form-control" placeholder="Digite o e-mail" ng-model="motorista.email">
+            <label>Veiculo: </label>
+            <select class="form-control" ng-model="veiculo" ng-options="veiculo.nome for veiculo in veiculos track by veiculo.id"></select>
+            <label>Empresa: </label>
+            <select class="form-control" ng-model="empresa" ng-options="empresa.nome for empresa in empresas track by empresa.id"></select>
+
+            <a type="submit" class="btn btn-primary" ng-click="gravar()">Incluir</a>
+        </div>
+    </div>
+</form>

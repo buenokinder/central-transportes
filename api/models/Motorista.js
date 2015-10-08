@@ -21,8 +21,12 @@ module.exports = {
       type: 'string',
       required: true
     },
-	  email: {
+    email: {
       type: 'string',
+      required: true
+    },
+    vehicle: {
+      model: 'veiculo',
       required: true
     },
     empresa: {
