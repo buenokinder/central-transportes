@@ -18,7 +18,14 @@ app.config(['$routeProvider',  function ($routeProvider) {
 		  templateUrl: "/views/usuario/form-edit.html"
 		});
    
-   
+   	$routeProvider.when("/plano", {
+   		templateUrl: "/views/planos/index.html",
+   		controller: 'PlanosController'
+   	}).when("/plano/new", {
+   		templateUrl: "/views/planos/new.html",
+   		controller: 'PlanosController'
+   	});
+
    $routeProvider.when("/veiculo", {
 			templateUrl: "/views/veiculo/index.html"
 		}).when("/veiculo/new", {		
