@@ -1,4 +1,6 @@
 #box_planos {
+
+
 	background: #FFF;
 	-webkit-border-radius: 0 0 5px 5px;
 	-moz-border-radius: 0 0 5px 5px;
@@ -76,12 +78,13 @@
 #box_planos .caracteristicas li{
 	float: left;
 	width: 425px;
-	height: 40px;
+	height: auto;
 	font: 300 16px Arial,Helvetica,sans-serif;
 	color: #484848;
 	padding-left: 25px;
 	background: 0 5px url("http://www.ellismayes.co.uk/communities/3/004/011/966/933//images/4594563387_16x16.png") no-repeat;
 }
+
 .btn_contrata{
 	display: block;
 	background: #38B0DE;
