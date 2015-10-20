@@ -8,16 +8,12 @@
 }
 
 #box_planos .planos li{
-	float: left;
-	width: 300px;
 	text-align: center;
 	margin: 45px 0 30px 0;
 	border-right: 1px solid #e5e5e5;
 }
 
 #box_planos .planos li:last-child{
-	width: 312px;
-	border-right: 0;
 }
 
 #box_planos .planos li h3{
@@ -63,7 +59,6 @@
 #box_planos .caracteristicas{
 	display: inline-block;
 	border-top: 3px solid #f1f1f1;
-	padding: 30px 30px 15px 30px;
 }
 
 #box_planos .caracteristicas h3{
@@ -76,13 +71,11 @@
 }
 
 #box_planos .caracteristicas li{
-	float: left;
-	width: 425px;
-	height: auto;
 	font: 300 16px Arial,Helvetica,sans-serif;
 	color: #484848;
 	padding-left: 25px;
-	background: 0 5px url("http://www.ellismayes.co.uk/communities/3/004/011/966/933//images/4594563387_16x16.png") no-repeat;
+	background: 0 7px url("http://www.ellismayes.co.uk/communities/3/004/011/966/933//images/4594563387_16x16.png") no-repeat;
+	margin-bottom: 10px;
 }
 
 .btn_contrata{
