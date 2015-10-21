@@ -1,51 +1,28 @@
-<div class="container">
+<div class="container" ng-init="init()">
 	<div class="row">
 		<div id="box_planos">
 			<div class="planos"> 
 				<ul>
-					<div class="col-xs-10 col-md-4 col-sm-4 col-lg-4">
+					<div class="col-xs-10 col-md-4 col-sm-4 col-lg-4" ng-repeat="plano in planos">
 						<li> 
-							<h3>Plano 1</h3> 
+							<h3>{{plano.nome}}</h3> 
 							<h4>R$ 
-								<strong>999,00</strong>
-								<span>/mês</span>
-							</h4> 
-							<a class="btn_contrata" href="">Contrate</a> 
-						</li>
-					</div>								
-					<div class="col-xs-10 col-md-4 col-sm-4 col-lg-4">		
-						<li> 
-							<h3>Plano 2</h3> 
-							<h4>R$ 
-								<strong>999,00</strong>
+								<strong>{{plano.preco}}</strong>
 								<span>/mês</span>
 							</h4> 
 							<a class="btn_contrata" href="">Contrate</a> 
 						</li>
 					</div>
-					<div class="col-xs-10 col-md-4 col-sm-4 col-lg-4">
-						<li> 
-							<h3>Plano 3</h3> 
-							<h4>R$ 
-								<strong>999,00</strong>
-								<span>/mês</span>
-							</h4> 
-							<a class="btn_contrata" href="">Contrate</a> 
-						</li>
-					</div>		 
 				</ul>
 			</div> 
 			<div class="caracteristicas"> 
 				<h3>Características</h3> 
 				<ul>
 					<div class="col-xs-10 col-md-4 col-sm-4 col-sm-offset-0 col-lg-2">
-						<li>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
 					</div>
 					<div class="col-xs-10 col-md-4 col-sm-4 col-sm-offset-0 col-lg-2">
-						<li>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-					</div>
-					<div class="col-xs-10 col-md-4 col-sm-4 col-sm-offset-0 col-lg-2">
-						<li>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
 					</div>
 					<div class="col-xs-10 col-md-4 col-sm-4 col-sm-offset-0 col-lg-2">
 						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
@@ -54,7 +31,10 @@
 						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
 					</div>
 					<div class="col-xs-10 col-md-4 col-sm-4 col-sm-offset-0 col-lg-2">
-						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+					</div>
+					<div class="col-xs-10 col-md-4 col-sm-4 col-sm-offset-0 col-lg-2">
+						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
 					</div>																				
 				</ul> 
 			</div> 

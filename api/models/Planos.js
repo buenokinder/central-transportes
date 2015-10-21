@@ -9,8 +9,7 @@ module.exports = {
 
   attributes: {
   	nome : { type: 'string' },
-  	preco : { type: 'string' },
-  	descricao : { type: 'string' }
+  	preco : { type: 'string' }
   }
 };
 

@@ -10,13 +10,13 @@ app.controller('PlanosController', ['$scope', '$http', function($scope, $http) {
 		$http.get("planos").then(function(results) {
 			$scope.planos = angular.fromJson(results.data);
 		});
+		console.log($scope.planos);
 	}
 
 	$scope.gravar = function() {
 		$http.post('/planos', {
 			nome: $scope.plano.nome,
 			preco: $scope.plano.preco,
-			descricao: $scope.plano.descricao
 		}).then(function onSuccess(sailsResponse){
 			window.location = '/planos';
 		}).catch(function onError(sailsResponse){
